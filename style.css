@@ -52,18 +52,20 @@ header {
     padding: 20px;
 
 }
+
 /*tous les elements qui sont directement dans balise scores */
 
-.scores > * {
-   /* gere l'alignement vertical des elements */
-    
-   vertical-align: middle;
+.scores>* {
+    /* gere l'alignement vertical des elements */
+
+    vertical-align: middle;
 
 
 }
+
 /*le element id current score */
 #current-score {
-    
+
     font-size: 2em;
 }
 
@@ -80,3 +82,28 @@ header {
     transition: opacity 0.3s;
 }
 
+
+#deck {
+display: flex;
+
+    padding: 0 20px;
+}
+
+/* cartes*/
+.card {
+    background-color: blue;
+    /*bordures*/
+    border: 2px solid #f3a410; 
+    /*coin arrondis */
+    border-radius: 3px;
+
+}
+
+/* tous les div enfants direct de element class card */
+.card>div {
+    /*hauteur fixe */
+    height: 233px;
+    /*largeur fixe */
+    width: 150px;
+
+}
