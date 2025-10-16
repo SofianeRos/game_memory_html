@@ -1,4 +1,82 @@
-body {
-    color: aliceblue;
-    background-color: rgb(218, 30, 30);
+/*toutes les balises */
+* {
+    /* bordures de la boites  */
+    border: 0;
+    /*mode de dimensionnement sur la boite de bordure */
+    box-sizing: border-box;
+    /* marge exterieur de la boite */
+    margin: 0;
+    /* bordure superpose qui apparait en focus  */
+    outline: 0;
+    /* marge interieur de la boite */
+    padding: 0;
+
+
 }
+
+/*tout les boutons */
+
+button {
+
+    /*couleur de fond de la zone contenu et du padding */
+
+    background-color: transparent;
+
+}
+
+
+body {
+    /* couleur du texte */
+    color: #fff;
+
+    /* couleur de fond de la page */
+    background-color: #070707;
+
+    /* police d'ecriture */
+    font-family: 'Bungee Spice', sans-serif;
+    font-size: 20px;
+
+}
+
+header {
+
+    /* centrer le contenu horizontalement et verticalement */
+    align-items: center;
+    /* mode de disposition en flexbox */
+    display: flex;
+    /* gere l'orientation du "fil" */
+    flex-direction: column;
+    /* espace entre les elements */
+    gap: 10px;
+    /* marge interieur de la boite */
+    padding: 20px;
+
+}
+/*tous les elements qui sont directement dans balise scores */
+
+.scores > * {
+   /* gere l'alignement vertical des elements */
+    
+   vertical-align: middle;
+
+
+}
+/*le element id current score */
+#current-score {
+    
+    font-size: 2em;
+}
+
+#btn-reset-score {
+    /* curseur en forme de main */
+    cursor: pointer;
+    /* taille de la police */
+    font-size: 0.9em;
+    /* couleur du texte */
+    color: #fff;
+    /* opacite */
+    opacity: 0.6;
+    /* transition de l'opacite */
+    transition: opacity 0.3s;
+}
+

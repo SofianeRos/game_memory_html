@@ -2,11 +2,17 @@
 <html lang="fr">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- police decriture -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Spicy+Rice&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 
 
-<link rel="stylesheet" href="style.css">
 
 
 
@@ -15,8 +21,37 @@
 </head>
 
 <body>
-    <h1>Memory Game</h1>
-    <p> Le jeu de l'annee ! </p>
+    <header>
+        <h1>Memory Game</h1>
+
+       
+            <div class="scores">
+
+            <span>hi-score :</span>
+            <span id="hi-score">00</span>
+            <button type="button" id="btn-reset-score">🗑️​</button>
+        </div>
+
+
+        <div id="current-score">00</div>
+
+
+
+
+
+    </header>
+
+
+    <main>
+        <div id="deck">
+
+            <div>card 1</div>
+            <div>card 2</div>
+            <div>card 3</div>
+            <div>card 4</div>
+            <div>card 5</div>
+        </div>
+    </main>
 
 
 
