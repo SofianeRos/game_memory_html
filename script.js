@@ -109,7 +109,7 @@ function handlerDOMContentLoaded() {
         // on fabrique l'interieur de elCard 
 
         let cardInnerHTML = '<div class="card-back"></div>';
-        
+
         cardInnerHTML += `<div class="card-img" style = "background-image:url('img/${numCard}.webp')"></div >`;
 
         elCard.innerHTML = cardInnerHTML;
@@ -158,11 +158,27 @@ function handlerDOMContentLoaded() {
 
         //on genere les cartes dans le deck a partir de la liste melangee et les afficher
 
-        //TODO: test a remplacer par la boucle 
+        //boucle pour parcourir un tableau  => for classique
+        
+        //for(let i= 0; i< arrNumCards.length; i++){
+        //  console.log(arrNumCards[i]);
+        // }
 
+        // Boucle pour parcourir un tableau dans son integralite => for in 
 
-        let uneCarte = getCardDOM(5) ;
-        elDeck.append(uneCarte);
+       // for (let i in arrNumCards) {
+         //   console.log(arrNumCards[i]);
+        //}
+
+        // Boucle pour parcourir un tableau dans son integralite => for of
+
+        for (let numCard of arrNumCards) {
+            const elCard = getCardDOM(numCard);
+            elDeck.append(elCard);   
+        }
+
+        // boucle pour parcourir un tableau dans osn integralite => array forEach
+        // arrNumCards.forEach(numCard => { console.log(numcard)});
 
 
     }
