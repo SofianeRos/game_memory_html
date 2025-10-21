@@ -44,6 +44,7 @@ function handlerDOMContentLoaded() {
         arrFlipped: [], // tableau des cartes retournees durant une tentative
         canPlay: true,// booleen pour savoir si le joueur peut jouer
         tries: 0, // nombre de tentatives
+        hiScore: 0, // hi-score actuel 0 signifiera qu'il n'y en a pas encore
         timer: null // timer du retournement des cartes non matchées
 
     };
@@ -51,12 +52,28 @@ function handlerDOMContentLoaded() {
 
     // Etapes de demarrage du jeu :
 
-    //TODO: recuperation et affichage du hi-score
+    //recuperation et affichage du hi-score
+    const storedData= localStorage.getItem('memory-game-hiscore');
+    //si il n'en existe pas on le cree dans le stockage du navigateur
+    if(storedData === null){
+        localStorage.setItem('memory-game-hiscore', gameState.hiScore );
+        
+    }
+    //sinon on met a jour le gamestate
+    else {
+        gameState.hiScore = parseInt(storedHiScore, 10);
+        
+    }
+    // afficher le hi score
+
+    elHiScore.textContent = gameState.hiScore > 0 ? gameState.hiScore : 'Aucun' ;
+    
     //TODO: implementation des cliks sur les boutons fixes : elBtnResetScore  et elBtnPlayAgain 
 
     //ecouteur de click sur elBtnResetScore
     elBtnResetScore.addEventListener('click', function () {
-        // TODO: effacer le hi-score de la memoire
+        // effacer le hi-score de la memoire
+        localStorage.removeItem('memory-game-hiscore');
         // on reinitialise l'interface graphique
         elHiScore.textContent = 'Aucun';
 
