@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Distressed&display=swap" >
-    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik+Distressed&display=swap">
+
     <link rel="stylesheet" href="style.css">
 
     <title>Memory Game</title>
 </head>
+
 <body>
     <header>
-        <h1>Memory Game</h1>
+                <!-- indicateur du theme selectionne -->
+        <div class = "theme-indicator"> theme <span id = "current-theme" > par defaut </span> </div>
+
+        <h1><span id = "mode-icon">🤓​</span>Memory Game</h1>
 
         <div class="scores">
             <span>Hi-Score :</span>
@@ -30,7 +36,6 @@
         <div id="deck"></div>
 
 
-
         <!-- Fenêtre modale de la victoire -->
         <div id="modal-win" class="modal-overlay hidden">
             <div class="modal">
@@ -39,8 +44,44 @@
                 <button type="button" id="btn-play-again" class="btn">Rejouer</button>
             </div>
         </div>
+
+        <!-- bouton des reglages -->
+         
+        <button type="button" id="btn-settings" class="btn">⚙️</button>
+
+        <!-- Fenêtre modale settings -->
+        <div id="modal-settings" class="modal-overlay hidden ">
+            <div class="modal">
+                <div class="h1">Réglages</div>
+                
+                <!-- div>(label+(select#mode>option*3)) -->
+                <div>
+                    <label for="select-mode">Difficulté</label>
+                    <select id="select-mode">
+                        <option value="6"> 🐟​ dory </option>
+                        <option value="9" selected >🤓​ Normal</option>
+                        <option value="12">🧠​ Krang </option>
+                    </select>
+
+                     <div>
+                    <label for="select-theme">Theme</label>
+                    <select id="select-theme">
+                        <option value="default" selected >Par défaut </option>
+                    </select>
+
+
+                <div>
+                    <button type="button" id="btn-settings-cancel" class="btn">annuler</button>
+                    <button type="button" id="btn-settings-ok" class="btn">ok</button>
+                </div>
+
+
+            </div>
+        </div>
+
     </main>
     <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

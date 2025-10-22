@@ -65,6 +65,12 @@ header,
     padding: 20px;
 }
 
+   /* indicateur de thème */
+    .theme-indicator {
+        font-size: 0.5em;
+        
+    }
+
 /* Boutons */
 .btn {
     background-color: #802d00;
@@ -194,7 +200,19 @@ main {
         z-index: 3;
     }
 
-/* -- Modale de victoire -- */
+
+ 
+
+/* -- Modales -- */
+/*boutons reglages*/
+#btn-settings {
+    /*espace entre le bord bas du bouton et le bas de l'element de reference du positionnement */
+    bottom: 20px;
+    position: fixed;
+    /*espace entre le bord droit du bouton et le bas de l'element de reference du positionnement */
+    right : 20px;
+
+}
 .modal-overlay {
     align-items: center;
     background-color: rgba(0, 0, 0, .7);
