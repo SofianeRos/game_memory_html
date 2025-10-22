@@ -33,11 +33,10 @@ function handlerDOMContentLoaded() {
 
     // les variables de fonctionnement du jeu
     let arrNumCards = []; // tableau qui contiendra les cartes du jeu
-    // reglage du jeu
-    const gameConfig = {
-        distinctCards: 12, // nombre de cartes distinctes dans le jeu
-        timerDelay: 1000 // delai en ms avant de retourner les cartes non appairées
-    };
+
+// reglage du jeu dans Config.js Variable gameConfig
+    
+    
     // objet literal pour stocker l'etat actuel du jeu
     const gameState = {
         arrFound: [], // tableau des cartes trouvees
