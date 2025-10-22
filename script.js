@@ -53,22 +53,20 @@ function handlerDOMContentLoaded() {
     // Etapes de demarrage du jeu :
 
     //recuperation et affichage du hi-score
-    const storedData= localStorage.getItem('memory-game-hiscore');
+    const storedHiScore = localStorage.getItem('memory-game-hiscore');
     //si il n'en existe pas on le cree dans le stockage du navigateur
-    if(storedData === null){
-        localStorage.setItem('memory-game-hiscore', gameState.hiScore );
-        
+    if (storedHiScore === null) {
+        localStorage.setItem('memory-game-hiscore', gameState.hiScore);
+
     }
     //sinon on met a jour le gamestate
     else {
         gameState.hiScore = parseInt(storedHiScore, 10);
-        
-    }
-    // afficher le hi score
 
-    elHiScore.textContent = gameState.hiScore > 0 ? gameState.hiScore : 'Aucun' ;
-    
-    //TODO: implementation des cliks sur les boutons fixes : elBtnResetScore  et elBtnPlayAgain 
+    }
+
+
+    // implementation des cliks sur les boutons fixes : elBtnResetScore  et elBtnPlayAgain 
 
     //ecouteur de click sur elBtnResetScore
     elBtnResetScore.addEventListener('click', function () {
@@ -181,6 +179,10 @@ function handlerDOMContentLoaded() {
 
         elDeck.innerHTML = '';
 
+        // afficher le hi score
+
+        elHiScore.textContent = gameState.hiScore > 0 ? gameState.hiScore : 'Aucun';
+
         // generation d'une liste de nombre en double 
         for (let i = 1; i <= gameConfig.distinctCards; i++) {
             // on ajoute deux fois le i a la fin du tableau
@@ -240,11 +242,11 @@ function handlerDOMContentLoaded() {
         // sinon on continue 
 
         // console.log('cliqué:', this.dataset.numCard);
-        
+
         // on reinitialise le timer 
-        
+
         clearTimeout(gameState.timer);
-        
+
         // on retourne la carte cliquée
 
         this.classList.add('flipped');
@@ -286,6 +288,21 @@ function handlerDOMContentLoaded() {
             // on affiche la modal de victoire
             elModalWin.classList.remove('hidden');
 
+            // on verifie si on a un nouveau hi-score
+            // si aucun hi_score ou que le nombre de tentative est meilleur que hi_score 
+            // L'autre test ne sera pas evalue car il n'aura aucun effet sur le resultat final
+            //cela permet d'optimiser les performances
+            // si aucun hi_score ou que le nombre de tentative est meilleur que hi_score ou qu'il ny a pas de hi-score
+            // => on met a jour le hi-score
+
+            if (gameState.tries < gameState.hiScore || gameState.hiScore <= 0) {
+                //on met a jour le hi-score dans le gamestate
+                gameState.hiScore = gameState.tries;
+                // on enregistre le nouveau score dans le localstorage
+
+                localStorage.setItem('memory-game-hiscore', gameState.hiScore);
+            }
+
 
             return;
 
@@ -302,9 +319,9 @@ function handlerDOMContentLoaded() {
 
         // on met en place un timer pour retourner les cartes apres un delai
         // dans une fonction fleche la convention dit que un argument seul qui est a coup sur undefined doit etre nomme "_"
-        gameState.timer = setTimeout ( _ => { 
+        gameState.timer = setTimeout(_ => {
             // pour chaque carte retournee sur cette tentative
-            for (let elCard of gameState .arrFlipped) {
+            for (let elCard of gameState.arrFlipped) {
                 elCard.classList.remove('flipped');
             }
             // reactive la posibilite de jouer
@@ -312,10 +329,10 @@ function handlerDOMContentLoaded() {
 
             // on vide le tableau des cartes retournees
             gameState.arrFlipped = [];
-            
-        }, gameConfig.timerDelay );
 
-        
+        }, gameConfig.timerDelay);
+
+
 
 
 
